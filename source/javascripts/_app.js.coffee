@@ -26,7 +26,7 @@ app.views.OrderJourneyView = Backbone.View.extend
     app.journeys.create
       start_loc: $('input[name="start_loc"]').val()
       end_loc: $('input[name="end_loc"]').val()
-      vehicle_type: $('input[name="vehicle_type"]').val()
+      vehicle_type: $('select[name="vehicle_type"]').val()
       start_at: new Date()
 
 app.views.ActiveJourneyView = Backbone.View.extend
