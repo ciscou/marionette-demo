@@ -1,0 +1,17 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf-8'}
+    %title Cabify - Profile
+    = stylesheet_link_tag 'all'
+
+  %body
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          = link_to "Cabify", '#journeys', class: 'navbar-brand'
+
+    .container
+      = yield
+
+    = javascript_include_tag 'all'
