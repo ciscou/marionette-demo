@@ -21,10 +21,10 @@ app.routers.Journeys = Backbone.Router.extend
 
     new app.views.journeys.OrderForm()
 
-    activeJourneysView = new app.views.ActiveJourneysView(collection: app.activeJourneys)
+    activeJourneysView = new app.views.activeJourneys.List(collection: app.activeJourneys)
     $('#active').html(activeJourneysView.render().el)
 
-    pastJourneysView = new app.views.PastJourneysView(collection: app.pastJourneys)
+    pastJourneysView = new app.views.pastJourneys.List(collection: app.pastJourneys)
     $('#past').html(pastJourneysView.render().el)
 
 new app.routers.Journeys()
