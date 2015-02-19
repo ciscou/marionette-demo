@@ -7,3 +7,8 @@
 //= require handlebars.runtime
 //= require_tree ./templates
 //= require _app
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
+//= require _init

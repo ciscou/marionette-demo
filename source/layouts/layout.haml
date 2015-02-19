@@ -14,48 +14,47 @@
     .container
       .row
         .col-md-3
-          #sidebar
-            .form-group
-              .btn-group.btn-group-justified
-                %a.btn.btn-default.active{href: '#journeys'} Trayectos
-                %a.btn.btn-default{href: '#account'} Cuenta
+          .form-group
+            #tabs.btn-group.btn-group-justified
+              %a.btn.btn-default.journeys{href: '#journeys'} Trayectos
+              %a.btn.btn-default.account{href: '#account'} Cuenta
 
-            #accordion.panel-group
-              .panel.panel-default
-                .panel-heading
-                  %h4.panel-title
-                    %a.collapse-order{href: '#order', data: {toggle: 'collapse', parent: '#accordion'}}
-                      Solicita un Cabify
-                #order.panel-collapse.collapse.in
-                  .panel-body
-                    %form#order-journey-form
-                      .form-group
-                        %input.form-control{name: 'start_loc', type: 'text', placeholder: 'Desde...'}
-                      .form-group
-                        %input.form-control{name: 'end_loc', type: 'text', placeholder: 'A...'}
-                      .form-group
-                        %select.form-control{name: 'vehicle_type', size: 4}
-                          %option Cabify Executive
-                          %option Cabify Lite
-                          %option Cabify Group
-                          %option Cabify Luxury
-                      %input.btn.btn-block.btn-primary{type: 'submit', value: 'Solicitar'}
-              .panel.panel-default
-                .panel-heading
-                  %h4.panel-title
-                    %a.collapse-active{href: '#active', data: {toggle: 'collapse', parent: '#accordion'}}
-                      Trayectos activos
-                #active.panel-collapse.collapse
-                  .panel-body
-                    Cargando...
-              .panel.panel-default
-                .panel-heading
-                  %h4.panel-title
-                    %a.collapse-past{href: '#past', data: {toggle: 'collapse', parent: '#accordion'}}
-                      Trayectos anteriores
-                #past.panel-collapse.collapse
-                  .panel-body
-                    Cargando...
+          #accordion.panel-group
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.collapse-order{href: '#order', data: {toggle: 'collapse', parent: '#accordion'}}
+                    Solicita un Cabify
+              #order.panel-collapse.collapse.in
+                .panel-body
+                  %form#order-journey-form
+                    .form-group
+                      %input.form-control{name: 'start_loc', type: 'text', placeholder: 'Desde...'}
+                    .form-group
+                      %input.form-control{name: 'end_loc', type: 'text', placeholder: 'A...'}
+                    .form-group
+                      %select.form-control{name: 'vehicle_type', size: 4}
+                        %option Cabify Executive
+                        %option Cabify Lite
+                        %option Cabify Group
+                        %option Cabify Luxury
+                    %input.btn.btn-block.btn-primary{type: 'submit', value: 'Solicitar'}
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.collapse-active{href: '#active', data: {toggle: 'collapse', parent: '#accordion'}}
+                    Trayectos activos
+              #active.panel-collapse.collapse
+                .panel-body
+                  Cargando...
+            .panel.panel-default
+              .panel-heading
+                %h4.panel-title
+                  %a.collapse-past{href: '#past', data: {toggle: 'collapse', parent: '#accordion'}}
+                    Trayectos anteriores
+              #past.panel-collapse.collapse
+                .panel-body
+                  Cargando...
         .col-md-9
           = yield
 
