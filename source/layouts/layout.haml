@@ -12,6 +12,51 @@
           = link_to "Cabify", '#journeys', class: 'navbar-brand'
 
     .container
-      = yield
+      .row
+        .col-md-3
+          #sidebar
+            .form-group
+              .btn-group.btn-group-justified
+                %a.btn.btn-default.active Trayectos
+                %a.btn.btn-default Cuenta
+
+            #accordion.panel-group
+              .panel.panel-default
+                .panel-heading
+                  %h4.panel-title
+                    %a{href: '#order', data: {toggle: 'collapse', parent: '#accordion'}}
+                      Solicita un Cabify
+                #order.panel-collapse.collapse.in
+                  .panel-body
+                    %form
+                      .form-group
+                        %input.form-control{type: 'text', placeholder: 'Desde...'}
+                      .form-group
+                        %input.form-control{type: 'text', placeholder: 'A...'}
+                      .form-group
+                        %select.form-control{multiple: true}
+                          %option Cabify Executive
+                          %option Cabify Lite
+                          %option Cabify Group
+                          %option Cabify Luxury
+                      %input.btn.btn-block.btn-primary{type: 'submit', value: 'Solicitar'}
+              .panel.panel-default
+                .panel-heading
+                  %h4.panel-title
+                    %a{href: '#active', data: {toggle: 'collapse', parent: '#accordion'}}
+                      Trayectos activos
+                #active.panel-collapse.collapse
+                  .panel-body
+                    trayectos activos
+              .panel.panel-default
+                .panel-heading
+                  %h4.panel-title
+                    %a{href: '#past', data: {toggle: 'collapse', parent: '#accordion'}}
+                      Trayectos anteriores
+                #past.panel-collapse.collapse
+                  .panel-body
+                    trayectos anteriores
+        .col-md-9
+          = yield
 
     = javascript_include_tag 'all'
