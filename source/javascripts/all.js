@@ -2,6 +2,7 @@
 //= require vendor/_underscore
 //= require vendor/_backbone
 //= require vendor/_backbone.localStorage
+//= require vendor/_backbone.obscura
 //= require bootstrap
 //= require handlebars.runtime
 //= require_tree ./templates
