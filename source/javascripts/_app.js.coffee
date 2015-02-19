@@ -18,6 +18,20 @@ app.models.Journey = Backbone.Model.extend
     !@isPast()
   isPast: ->
     @has('end_at')
+  validate: (attrs, opts) ->
+    errors = {}
+
+    unless attrs.start_loc
+      errors.start_loc = "can't be blank"
+    unless attrs.end_loc
+      errors.end_loc = "can't be blank"
+    unless attrs.vehicle_type
+      errors.vehicle_type = "can't be blank"
+
+    if _.isEmpty(errors)
+      undefined
+    else
+      errors
 
 app.collections.Journeys = Backbone.Collection.extend
   localStorage: new Backbone.LocalStorage("journeys")
@@ -29,11 +43,29 @@ app.views.OrderJourneyView = Backbone.View.extend
     submit: 'onSubmit'
   onSubmit: (e) ->
     e.preventDefault()
-    app.journeys.create
-      start_loc: $('input[name="start_loc"]').val()
-      end_loc: $('input[name="end_loc"]').val()
-      vehicle_type: $('select[name="vehicle_type"]').val()
+    data =
+      start_loc: @$('input[name="start_loc"]').val()
+      end_loc: @$('input[name="end_loc"]').val()
+      vehicle_type: @$('select[name="vehicle_type"]').val()
       start_at: new Date()
+    journey = new app.models.Journey data, collection: app.journeys
+    if journey.save()
+      @reset()
+      app.journeys.add(journey)
+      $('a.collapse-active').click()
+    else
+      @onFormDataInvalid(journey.validationError)
+  reset: ->
+    @$('.form-group.has-error').removeClass('has-error').find('span.help-block').remove()
+    @$('input[name="start_loc"]').val('')
+    @$('input[name="end_loc"]').val('')
+    @$('select[name="vehicle_type"]').val('')
+  onFormDataInvalid: (errors) ->
+    @$('.form-group.has-error').removeClass('has-error').find('span.help-block').remove()
+    _.each errors, (value, key) ->
+      $formGroup = @$("[name=#{key}]").parent()
+      $errorEl = $('<span>', class: 'help-block', text: value)
+      $formGroup.addClass('has-error').append($errorEl)
 
 app.views.ActiveJourneyView = Backbone.View.extend
   template: HandlebarsTemplates['active_journeys/list_item']
@@ -42,10 +74,11 @@ app.views.ActiveJourneyView = Backbone.View.extend
   events:
     'click .finish': 'onFinishClicked'
   initialize: ->
-    @listenTo @model, 'destroy', @remove
+    @listenTo @model, 'remove', @remove
   onFinishClicked: (e) ->
     e.preventDefault()
     @model.finish()
+    $('a.collapse-past').click()
   render: ->
     @$el.html @template @model.attributes
     @

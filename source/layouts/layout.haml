@@ -24,7 +24,7 @@
               .panel.panel-default
                 .panel-heading
                   %h4.panel-title
-                    %a{href: '#order', data: {toggle: 'collapse', parent: '#accordion'}}
+                    %a.collapse-order{href: '#order', data: {toggle: 'collapse', parent: '#accordion'}}
                       Solicita un Cabify
                 #order.panel-collapse.collapse.in
                   .panel-body
@@ -43,7 +43,7 @@
               .panel.panel-default
                 .panel-heading
                   %h4.panel-title
-                    %a{href: '#active', data: {toggle: 'collapse', parent: '#accordion'}}
+                    %a.collapse-active{href: '#active', data: {toggle: 'collapse', parent: '#accordion'}}
                       Trayectos activos
                 #active.panel-collapse.collapse
                   .panel-body
@@ -51,11 +51,11 @@
               .panel.panel-default
                 .panel-heading
                   %h4.panel-title
-                    %a{href: '#past', data: {toggle: 'collapse', parent: '#accordion'}}
+                    %a.collapse-past{href: '#past', data: {toggle: 'collapse', parent: '#accordion'}}
                       Trayectos anteriores
                 #past.panel-collapse.collapse
                   .panel-body
-                    trayectos anteriores
+                    Cargando...
         .col-md-9
           = yield
 
