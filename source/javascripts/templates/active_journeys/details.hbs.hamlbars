@@ -1,0 +1,11 @@
+%dl.dl-horizontal
+  %dt Desde
+  %dd {{start_loc}}
+  %dt Hasta
+  %dd {{end_loc}}
+  %dt Tipo de vehiculo
+  %dd {{vehicle_type}}
+  %dt Inicio
+  %dd {{start_at}}
+
+%a.btn.btn-default.finish{href: '#'} Finalizar
