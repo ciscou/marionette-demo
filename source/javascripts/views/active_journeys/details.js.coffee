@@ -8,6 +8,7 @@ app.views.activeJourneys.Details = Backbone.View.extend
     'click .finish': 'onFinishClicked'
   onFinishClicked: (e) ->
     e.preventDefault()
+    @$('.finish').attr('disabled', true)
     @model.finish()
     $('a.collapse-past').click()
   render: ->

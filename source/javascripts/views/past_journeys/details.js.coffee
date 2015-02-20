@@ -8,6 +8,7 @@ app.views.pastJourneys.Details = Backbone.View.extend
     'click .destroy': 'onDestroyClicked'
   onDestroyClicked: (e) ->
     e.preventDefault()
+    @$('.destroy').attr('disabled', true)
     @model.destroy()
   render: ->
     @$el.html @template @model.toJSON()
