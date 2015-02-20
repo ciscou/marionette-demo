@@ -18,6 +18,7 @@ app.views.journeys.OrderForm = Backbone.View.extend
       @reset()
       app.journeys.add(journey)
       $('a.collapse-active').click()
+      journey.trigger('highlight')
     else
       @onFormDataInvalid(journey.validationError)
   reset: ->

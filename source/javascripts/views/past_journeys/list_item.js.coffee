@@ -10,8 +10,11 @@ app.views.pastJourneys.ListItem = Backbone.View.extend
     'click': 'onClick'
   initialize: ->
     @listenTo @model, 'destroy', @remove
+    @listenTo @model, 'highlight', @highlight
   onClick: (e) ->
     e.preventDefault()
+    @highlight()
+  highlight: ->
     view = new app.views.pastJourneys.Details(model: @model)
     @$el.closest('.panel-group').find('.list-group-item').removeClass('active')
     @$el.addClass('active')
