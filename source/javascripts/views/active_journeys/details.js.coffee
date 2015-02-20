@@ -10,7 +10,7 @@ app.views.activeJourneys.Details = Backbone.View.extend
     e.preventDefault()
     @$('.finish').attr('disabled', true)
     @model.finish()
-    $('a.collapse-past').click()
+    $('#past').collapse('show')
     @model.trigger('highlight')
   render: ->
     @$el.html @template @model.toJSON()
