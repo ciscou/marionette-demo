@@ -2,7 +2,7 @@ app = @app
 
 app.views.pastJourneys ?= {}
 
-app.views.pastJourneys.Details = Backbone.View.extend
+app.views.pastJourneys.Details = Backbone.Marionette.ItemView.extend
   template: HandlebarsTemplates['past_journeys/details']
   events:
     'click .destroy': 'onDestroyClicked'
@@ -10,6 +10,3 @@ app.views.pastJourneys.Details = Backbone.View.extend
     e.preventDefault()
     @$('.destroy').attr('disabled', true)
     @model.destroy()
-  render: ->
-    @$el.html @template @model.toJSON()
-    @
