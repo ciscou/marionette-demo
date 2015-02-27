@@ -8,7 +8,7 @@ app.routers.Journeys = Backbone.Router.extend
     @journeys()
     @navigate('journeys')
   journeys: ->
-    $('#accordion').show()
+    $('#sidebar').html(new app.views.sidebar.Accordion().render().el)
     $('#tabs a.journeys').addClass('active')
     $('#tabs a.account').removeClass('active')
 
@@ -18,8 +18,6 @@ app.routers.Journeys = Backbone.Router.extend
     app.activeJourneys = new Backbone.Obscura(app.journeys).filterBy (model) -> model.isActive()
 
     app.pastJourneys = new Backbone.Obscura(app.journeys).filterBy (model) -> model.isPast()
-
-    new app.views.journeys.OrderForm()
 
     activeJourneysView = new app.views.activeJourneys.List(collection: app.activeJourneys)
     $('#active').html(activeJourneysView.render().el)

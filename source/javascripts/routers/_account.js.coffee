@@ -4,7 +4,7 @@ app.routers.Account = Backbone.Router.extend
   routes:
     'account': 'account'
   account: ->
-    $('#accordion').hide()
+    $('#sidebar').empty()
     $('#tabs a.journeys').removeClass('active')
     $('#tabs a.account').addClass('active')
 

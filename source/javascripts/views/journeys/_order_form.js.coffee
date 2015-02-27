@@ -3,7 +3,6 @@ app = @app
 app.views.journeys ?= {}
 
 app.views.journeys.OrderForm = Backbone.View.extend
-  el: $('#order-journey-form')
   events:
     submit: 'onSubmit'
   onSubmit: (e) ->
