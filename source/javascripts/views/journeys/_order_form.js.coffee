@@ -7,19 +7,12 @@ app.views.journeys.OrderForm = Backbone.View.extend
     submit: 'onSubmit'
   onSubmit: (e) ->
     e.preventDefault()
-    data =
-      start_loc: @$('input[name="start_loc"]').val()
-      end_loc: @$('input[name="end_loc"]').val()
-      vehicle_type: @$('select[name="vehicle_type"]').val()
-      start_at: new Date()
-    journey = new app.models.Journey data, collection: app.journeys
-    if journey.save()
-      @reset()
-      app.journeys.add(journey)
-      $('#active').collapse('show')
-      journey.trigger('highlight')
-    else
-      @onFormDataInvalid(journey.validationError)
+    @trigger 'submit'
+  getData: ->
+    start_loc: @$('input[name="start_loc"]').val()
+    end_loc: @$('input[name="end_loc"]').val()
+    vehicle_type: @$('select[name="vehicle_type"]').val()
+    start_at: new Date()
   reset: ->
     @$('.form-group.has-error').removeClass('has-error').find('span.help-block').remove()
     @$('input[name="start_loc"]').val('')
