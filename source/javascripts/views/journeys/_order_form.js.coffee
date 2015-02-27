@@ -2,12 +2,9 @@ app = @app
 
 app.views.journeys ?= {}
 
-app.views.journeys.OrderForm = Backbone.View.extend
-  events:
-    submit: 'onSubmit'
-  onSubmit: (e) ->
-    e.preventDefault()
-    @trigger 'submit'
+app.views.journeys.OrderForm = Backbone.Marionette.ItemView.extend
+  triggers:
+    submit: 'submit'
   getData: ->
     start_loc: @$('input[name="start_loc"]').val()
     end_loc: @$('input[name="end_loc"]').val()
