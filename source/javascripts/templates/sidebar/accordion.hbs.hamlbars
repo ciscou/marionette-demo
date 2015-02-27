@@ -5,18 +5,7 @@
         Solicita un Cabify
   #order.panel-collapse.collapse.in
     .panel-body
-      %form#order-journey-form
-        .form-group
-          %input.form-control{name: 'start_loc', type: 'text', placeholder: 'Desde...'}
-        .form-group
-          %input.form-control{name: 'end_loc', type: 'text', placeholder: 'A...'}
-        .form-group
-          %select.form-control{name: 'vehicle_type', size: 4}
-            %option Cabify Executive
-            %option Cabify Lite
-            %option Cabify Group
-            %option Cabify Luxury
-        %input.btn.btn-block.btn-primary{type: 'submit', value: 'Solicitar'}
+      Cargando...
 .panel.panel-default
   .panel-heading
     %h4.panel-title

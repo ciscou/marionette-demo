@@ -21,7 +21,7 @@ app.controllers.Journeys =
     pastJourneysView = new app.views.pastJourneys.List(collection: app.pastJourneys)
     accordion.past.show(pastJourneysView)
 
-    orderFormView = new app.views.journeys.OrderForm(el: $('#order-journey-form'))
+    orderFormView = new app.views.journeys.OrderForm()
     orderFormView.on 'submit', ->
       journey = new app.models.Journey orderFormView.getData(), collection: app.journeys
       if journey.save()
@@ -31,3 +31,4 @@ app.controllers.Journeys =
         journey.trigger('highlight')
       else
         orderFormView.onFormDataInvalid(journey.validationError)
+    accordion.order.show(orderFormView)

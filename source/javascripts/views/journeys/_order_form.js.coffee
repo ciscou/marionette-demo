@@ -3,6 +3,9 @@ app = @app
 app.views.journeys ?= {}
 
 app.views.journeys.OrderForm = Backbone.Marionette.ItemView.extend
+  tagName: 'form'
+  className: 'panel-body'
+  template: HandlebarsTemplates['journeys/order_form']
   triggers:
     submit: 'submit'
   getData: ->
