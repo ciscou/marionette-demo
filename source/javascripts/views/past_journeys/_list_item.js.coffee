@@ -2,7 +2,7 @@ app = @app
 
 app.views.pastJourneys ?= {}
 
-app.views.pastJourneys.ListItem = Backbone.View.extend
+app.views.pastJourneys.ListItem = Backbone.Marionette.ItemView.extend
   template: HandlebarsTemplates['past_journeys/list_item']
   tagName: 'li'
   className: 'list-group-item'
