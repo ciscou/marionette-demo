@@ -24,7 +24,7 @@ app.views.journeys.OrderForm = Backbone.Marionette.ItemView.extend
     @ui.vehicle_type.val('')
   onFormDataInvalid: (errors) ->
     @$('.form-group.has-error').removeClass('has-error').find('span.help-block').remove()
-    _.each errors, (value, key) ->
+    _.each errors, (value, key) =>
       $formGroup = @ui[key].parent()
       $errorEl = $('<span>', class: 'help-block', text: value)
       $formGroup.addClass('has-error').append($errorEl)
