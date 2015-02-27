@@ -2,7 +2,8 @@ app = @app
 
 app.controllers.Journeys =
   journeys: ->
-    app.sidebar.show(new app.views.sidebar.Accordion())
+    accordion = new app.views.sidebar.Accordion()
+    app.sidebar.show(accordion)
     $('#main').html('here be a map')
     $('#tabs a.journeys').addClass('active')
     $('#tabs a.account').removeClass('active')
@@ -15,10 +16,10 @@ app.controllers.Journeys =
     app.pastJourneys = new Backbone.Obscura(app.journeys).filterBy (model) -> model.isPast()
 
     activeJourneysView = new app.views.activeJourneys.List(collection: app.activeJourneys)
-    $('#active').html(activeJourneysView.render().el)
+    accordion.active.show(activeJourneysView)
 
     pastJourneysView = new app.views.pastJourneys.List(collection: app.pastJourneys)
-    $('#past').html(pastJourneysView.render().el)
+    accordion.past.show(pastJourneysView)
 
     orderFormView = new app.views.journeys.OrderForm(el: $('#order-journey-form'))
     orderFormView.on 'submit', ->
