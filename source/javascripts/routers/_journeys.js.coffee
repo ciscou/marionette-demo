@@ -9,6 +9,7 @@ app.routers.Journeys = Backbone.Router.extend
     @navigate('journeys')
   journeys: ->
     $('#sidebar').html(new app.views.sidebar.Accordion().render().el)
+    $('#main').html('here be a map')
     $('#tabs a.journeys').addClass('active')
     $('#tabs a.account').removeClass('active')
 
