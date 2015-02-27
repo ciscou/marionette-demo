@@ -18,7 +18,7 @@ app.views.activeJourneys.ListItem = Backbone.Marionette.ItemView.extend
     view = new app.views.activeJourneys.Details(model: @model)
     @$el.closest('.panel-group').find('.list-group-item').removeClass('active')
     @$el.addClass('active')
-    $('#main').html(view.render().el)
+    app.main.show(view)
   serializeData: ->
     attrs = @model.toJSON()
     attrs.start_at_day = ("0" + new Date(attrs.start_at).getDate()).slice(-2)

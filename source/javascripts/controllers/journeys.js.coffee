@@ -2,7 +2,7 @@ app = @app
 
 app.controllers.Journeys =
   journeys: ->
-    $('#sidebar').html(new app.views.sidebar.Accordion().render().el)
+    app.sidebar.show(new app.views.sidebar.Accordion())
     $('#main').html('here be a map')
     $('#tabs a.journeys').addClass('active')
     $('#tabs a.account').removeClass('active')
