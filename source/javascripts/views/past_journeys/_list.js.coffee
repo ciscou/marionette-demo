@@ -2,7 +2,7 @@ app = @app
 
 app.views.pastJourneys ?= {}
 
-app.views.pastJourneys.List = Backbone.View.extend
+app.views.pastJourneys.List = Backbone.Marionette.CollectionView.extend
   tagName: 'ul'
   className: 'list-group'
   initialize: ->
