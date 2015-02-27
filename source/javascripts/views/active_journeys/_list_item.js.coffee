@@ -8,9 +8,8 @@ app.views.activeJourneys.ListItem = Backbone.Marionette.ItemView.extend
   className: 'list-group-item'
   events:
     'click': 'onClick'
-  initialize: ->
-    @listenTo @model, 'remove', @remove
-    @listenTo @model, 'highlight', @highlight
+  modelEvents:
+    'highlight': 'highlight'
   onClick: (e) ->
     e.preventDefault()
     @highlight()
