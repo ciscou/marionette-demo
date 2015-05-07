@@ -6,6 +6,7 @@ app = new Backbone.Marionette.Application
   routers: {}
   regions:
     sidebar: '#sidebar'
+    flash_messages: '#flash-messages'
     main: '#main'
 
 @app = app
