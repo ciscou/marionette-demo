@@ -3,7 +3,14 @@ app = @app
 app.collections.Journeys = Backbone.Collection.extend
   localStorage: new Backbone.LocalStorage("journeys")
   model: app.models.Journey
-  comparator: 'start_at'
+  comparator: (j1, j2) ->
+    [d1, d2] = [j1.get('start_at'), j2.get('start_at')]
+    if d1 > d2
+      -1
+    else if d1 < d2
+      1
+    else
+      0
   populate: ->
     locs = _(["Aeropuerto T1", "Aeropuerto T4", "Sol", "Atocha Renfe", "Nuevos Ministerios", "Chamartin", "Cabify Spain"])
     vehicle_types = _(["Cabify Executive", "Cabify Lite", "Cabify Group", "Cabify Luxury"])
