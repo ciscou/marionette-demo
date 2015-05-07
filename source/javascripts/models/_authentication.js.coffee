@@ -11,5 +11,5 @@ app.models.Authentication = Backbone.Model.extend
     ,
       headers:
         'Authorization': 'Basic ODVhYzVmNmY0Y2JkNDJlZjlmMTdlNjE5ZTliNDI1N2I6OEE4Z1FmdzdpSFduUXJYQnlibm5fdw=='
-      error: (xhr, status, response) =>
-        @validationError = xhr.responseJSON
+      error: (model, xhr) ->
+        model.validationError = xhr.responseJSON
