@@ -10,10 +10,19 @@ app.controllers.Authentication =
       promise = auth.authenticate(authFormView.getUsername(), authFormView.getPassword())
 
       promise.done ->
-        app.vent.trigger("user:logged:in")
         console.log("OK! :)", auth.attributes)
+
+        user = new app.models.User()
+        promise = user.fetchForAuthentication(auth)
+        promise.done ->
+          console.log user.attributes
+          app.current_user = user
+          app.vent.trigger("user:logged:in")
+        promise.fail ->
+          console.log("ZOMG failed to fetch user")
+
       promise.fail ->
-        authFormView.enable()
         console.log("KO! :(", auth.validationError)
+        authFormView.enable()
 
     app.main.show(authFormView)
