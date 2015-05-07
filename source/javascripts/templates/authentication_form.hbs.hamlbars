@@ -1,0 +1,9 @@
+.row
+  .col-md-6
+    .form-group
+      %label{for: 'authentication_username'} Username
+      %input#authentication_username.form-control{name: 'username', type: 'text'}
+    .form-group
+      %label{for: 'authentication_password'} Password
+      %input#authentication_password.form-control{name: 'password', type: 'password'}
+    %input.btn.btn-block.btn-primary{type: 'submit', value: 'Sign In!'}
