@@ -15,3 +15,4 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 gem "bootstrap-sass", require: false
 gem "handlebars_assets"
+gem "brown_dispatcher", github: "ciscou/brown_dispatcher"

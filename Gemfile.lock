@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/ciscou/brown_dispatcher.git
+  revision: ad03155da22a2f15808268418cd1b3e287e9d8cf
+  specs:
+    brown_dispatcher (1.0.0)
+      httparty
+      redis
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -51,6 +59,9 @@ GEM
     hooks (0.4.0)
       uber (~> 0.0.4)
     http_parser.rb (0.6.0)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.2)
     kramdown (1.5.0)
@@ -93,6 +104,7 @@ GEM
       sprockets-sass (~> 1.3.0)
     minitest (5.5.1)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     padrino-helpers (0.12.4)
       i18n (~> 0.6, >= 0.6.7)
       padrino-support (= 0.12.4)
@@ -107,6 +119,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
+    redis (3.2.1)
     sass (3.4.12)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -135,6 +148,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass
+  brown_dispatcher!
   handlebars_assets
   middleman (~> 3.3.9)
   middleman-livereload (~> 3.1.0)
