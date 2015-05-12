@@ -19,7 +19,7 @@ authenticateAndFetchUser = (authFormView) ->
     fetchUserForAuthentication(auth)
 
   promise.fail ->
-    app.flash_messages.show(new app.views.FlashMessage(auth.validationError.message))
+    app.flash_messages.show(new app.views.FlashMessage(message: auth.validationError.message))
     authFormView.enable()
 
 fetchUserForAuthentication = (auth) ->
@@ -27,9 +27,9 @@ fetchUserForAuthentication = (auth) ->
   promise = user.fetchForAuthentication(auth)
 
   promise.done ->
-    app.flash_messages.show(new app.views.FlashMessage("Welcome, #{user.get('full_name')}!", "success"))
+    app.flash_messages.show(new app.views.FlashMessage(message: "Welcome, #{user.get('full_name')}!", level: "success"))
     app.current_user = user
     app.vent.trigger("user:logged:in")
 
   promise.fail ->
-    app.flash_messages.show(new app.views.FlashMessage("ZOMG failed to fetch user"))
+    app.flash_messages.show(new app.views.FlashMessage(message: "ZOMG failed to fetch user"))
