@@ -9,4 +9,7 @@ app = new Backbone.Marionette.Application
     flash_messages: '#flash-messages'
     main: '#main'
 
+app.on 'start', ->
+  Backbone.history.start()
+
 @app = app

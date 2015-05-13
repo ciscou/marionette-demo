@@ -1,1 +1,1 @@
-Backbone.history.start()
+@app.start()
