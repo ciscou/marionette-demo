@@ -1,9 +1,11 @@
 app = @app
 
-app.views.RegistrationForm = Backbone.Marionette.ItemView.extend
+app.views.authentication ?= {}
+
+app.views.authentication.RegistrationForm = Backbone.Marionette.ItemView.extend
   tagName: 'form'
 
-  template: HandlebarsTemplates['registration_form']
+  template: HandlebarsTemplates['authentication/registration_form']
 
   triggers:
     submit: 'submit'

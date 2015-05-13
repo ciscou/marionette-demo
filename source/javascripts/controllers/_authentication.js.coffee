@@ -2,12 +2,12 @@ app = @app
 
 app.controllers.Authentication =
   loginOrRegister: ->
-    loginOrRegistrationView = new app.views.LoginOrRegistration()
+    loginOrRegistrationView = new app.views.authentication.LoginOrRegistration()
 
     app.main.show(loginOrRegistrationView)
 
   login: ->
-    loginFormView = new app.views.LoginForm()
+    loginFormView = new app.views.authentication.LoginForm()
 
     loginFormView.on 'submit', ->
       authenticateAndFetchUser(loginFormView)
@@ -15,7 +15,7 @@ app.controllers.Authentication =
     app.main.show(loginFormView)
 
   register: ->
-    registrationFormView = new app.views.RegistrationForm()
+    registrationFormView = new app.views.authentication.RegistrationForm()
 
     registrationFormView.on 'submit', ->
       registrationFormView.disable()

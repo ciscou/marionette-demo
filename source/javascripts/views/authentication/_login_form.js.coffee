@@ -1,8 +1,10 @@
 app = @app
 
-app.views.LoginForm = Backbone.Marionette.ItemView.extend
+app.views.authentication ?= {}
+
+app.views.authentication.LoginForm = Backbone.Marionette.ItemView.extend
   tagName: 'form'
-  template: HandlebarsTemplates['login_form']
+  template: HandlebarsTemplates['authentication/login_form']
   triggers:
     submit: 'submit'
   ui:
