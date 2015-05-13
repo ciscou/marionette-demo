@@ -36,7 +36,7 @@ app.views.authentication.RegistrationForm = Backbone.Marionette.ItemView.extend
       $formGroup.addClass('has-error').append($errorEl)
 
   disable: ->
-    @ui.submit.addClass('disabled')
+    @ui.submit.prop('disabled', true)
 
   enable: ->
-    @ui.submit.removeClass('disabled')
+    @ui.submit.prop('disabled', false)
