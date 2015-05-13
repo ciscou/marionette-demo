@@ -10,7 +10,7 @@ app.routers.Journeys = Backbone.Marionette.AppRouter.extend
     'journeys/past':   'past'
 
   redirectToOrderJourney: ->
-    app.controllers.Journeys.order()
+    @options.controller.order()
     @navigateToJourneys('order')
 
   navigateToJourneys: (current) ->

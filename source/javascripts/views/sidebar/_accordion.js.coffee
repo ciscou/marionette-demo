@@ -21,7 +21,7 @@ app.views.sidebar.Accordion = Backbone.Marionette.LayoutView.extend
     @$el.on 'show.bs.collapse', =>
       @$('.panel-collapse.in').collapse('hide')
 
-    @$("##{@options.current}").collapse('show')
+    @$("##{@options.current}").addClass('in')
 
   onPanelTitleClicked: (e) ->
     e.preventDefault()
