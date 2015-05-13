@@ -1,7 +1,7 @@
 .panel.panel-default
   .panel-heading
     %h4.panel-title
-      %a{href: '#journeys/order', data: { target: '#order' }}
+      %a{href: '#journeys/order', data: { target: 'order' }}
         Solicita un Cabify
   #order.panel-collapse.collapse
     .panel-body
@@ -10,7 +10,7 @@
 .panel.panel-default
   .panel-heading
     %h4.panel-title
-      %a{href: '#journeys/active', data: { target: '#active' }}
+      %a{href: '#journeys/active', data: { target: 'active' }}
         Trayectos activos
   #active.panel-collapse.collapse
     .panel-body
@@ -19,7 +19,7 @@
 .panel.panel-default
   .panel-heading
     %h4.panel-title
-      %a{href: '#journeys/past', data: { target: '#past' }}
+      %a{href: '#journeys/past', data: { target: 'past' }}
         Trayectos anteriores
   #past.panel-collapse.collapse
     .panel-body

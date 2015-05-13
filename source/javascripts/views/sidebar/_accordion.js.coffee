@@ -27,4 +27,6 @@ app.views.sidebar.Accordion = Backbone.Marionette.LayoutView.extend
     e.preventDefault()
 
     $a = $(e.target)
-    @$($a.data('target')).collapse('toggle')
+    @$("##{$a.data('target')}").collapse('toggle')
+
+    app.vent.trigger 'navigate:journeys', $a.data('target')
