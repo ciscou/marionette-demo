@@ -1,0 +1,33 @@
+.row
+  .col-md-6
+    .form-group
+      %label{for: 'registration_name'} Name
+      %input#registration_name.form-control{name: 'name', type: 'text'}
+
+    .form-group
+      %label{for: 'registration_surname'} Surname
+      %input#registration_surname.form-control{name: 'surname', type: 'text'}
+
+    .form-group
+      %label{for: 'registration_email'} Email
+      %input#registration_email.form-control{name: 'email', type: 'email'}
+
+    .form-group
+      %label{for: 'registration_password'} Password
+      %input#registration_password.form-control{name: 'password', type: 'password'}
+
+    .form-group
+      %label{for: 'registration_mobile_cc'} Country
+      %select#registration_mobile_cc.form-control{name: 'mobile_cc'}
+        %option{value: "34"} Spain
+
+    .form-group
+      %label{for: 'registration_mobile_num'} Mobile
+      %input#registration_mobile_num.form-control{name: 'mobile_num', type: 'tel'}
+
+    .form-group
+      %input.btn.btn-block.btn-primary{type: 'submit', value: 'Register!'}
+
+    %p
+      Already have an account?
+      %a.btn.btn-default.btn-xs{href: '#login'} Login

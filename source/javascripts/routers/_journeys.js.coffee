@@ -1,9 +1,6 @@
 app = @app
 
 app.routers.Journeys = Backbone.Marionette.AppRouter.extend
-  routes:
-    '': 'redirectToOrderJourney'
-
   appRoutes:
     'journeys/order':  'order'
     'journeys/active': 'active'

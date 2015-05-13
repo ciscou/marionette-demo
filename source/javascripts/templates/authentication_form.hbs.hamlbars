@@ -6,4 +6,9 @@
     .form-group
       %label{for: 'authentication_password'} Password
       %input#authentication_password.form-control{name: 'password', type: 'password'}
-    %input.btn.btn-block.btn-primary{type: 'submit', value: 'Sign In!'}
+    .form-group
+      %input.btn.btn-block.btn-primary{type: 'submit', value: 'Sign In!'}
+
+    %p
+      Don't have an account?
+      %a.btn.btn-default.btn-xs{href: '#register'} Register

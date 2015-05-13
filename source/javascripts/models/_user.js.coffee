@@ -2,6 +2,7 @@ app = @app
 
 app.models.User = Backbone.Model.extend
   url: '/api/user'
+
   fetchForAuthentication: (auth) ->
     @fetch
       headers:

@@ -1,0 +1,5 @@
+%p
+  Please
+  %a.btn.btn-default.btn-xs{href: '#login'} login
+  or
+  %a.btn.btn-default.btn-xs{href: '#register'} register
