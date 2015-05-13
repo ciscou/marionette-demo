@@ -1,8 +1,17 @@
 app = @app
 
 app.controllers.Journeys =
-  journeys: ->
-    accordion = new app.views.sidebar.Accordion()
+  order: ->
+    @journeys('order')
+
+  active: ->
+    @journeys('active')
+
+  past: ->
+    @journeys('past')
+
+  journeys: (current) ->
+    accordion = new app.views.sidebar.Accordion(current: current)
     app.sidebar.show(accordion)
     $('#main').html('here be a map')
     $('#tabs a.journeys').addClass('active')
