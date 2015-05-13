@@ -2,11 +2,17 @@ app = @app
 
 app.controllers.Authentication =
   loginOrRegister: ->
+    app.tabs.empty()
+    app.sidebar.empty()
+
     loginOrRegistrationView = new app.views.authentication.LoginOrRegistration()
 
     app.main.show(loginOrRegistrationView)
 
   login: ->
+    app.tabs.empty()
+    app.sidebar.empty()
+
     loginFormView = new app.views.authentication.LoginForm()
 
     loginFormView.on 'submit', ->
@@ -15,24 +21,13 @@ app.controllers.Authentication =
     app.main.show(loginFormView)
 
   register: ->
+    app.tabs.empty()
+    app.sidebar.empty()
+
     registrationFormView = new app.views.authentication.RegistrationForm()
 
     registrationFormView.on 'submit', ->
-      registrationFormView.disable()
-
-      user = new app.models.User(registrationFormView.getData())
-      registering = user.save null,
-        error: (model, xhr) ->
-          model.validationError = xhr.responseJSON || { message: "Registration failed" }
-
-      registering.done ->
-        app.flash_messages.show(new app.views.FlashMessage(message: "You've been registered successfully! Please, log in", level: 'success'))
-        app.vent.trigger('user:registered')
-
-      registering.fail ->
-        app.flash_messages.show(new app.views.FlashMessage(message: user.validationError.message))
-        registrationFormView.onFormDataInvalid(user.validationError.errors)
-        registrationFormView.enable()
+      registerUser(registrationFormView)
 
     app.main.show(registrationFormView)
 
@@ -60,3 +55,20 @@ fetchUserForAuthorization = (auth) ->
 
   promise.fail ->
     app.flash_messages.show(new app.views.FlashMessage(message: "ZOMG failed to fetch user"))
+
+registerUser = (registrationFormView) ->
+  registrationFormView.disable()
+
+  user = new app.models.User(registrationFormView.getData())
+  registering = user.save null,
+    error: (model, xhr) ->
+      model.validationError = xhr.responseJSON || { message: "Registration failed" }
+
+  registering.done ->
+    app.flash_messages.show(new app.views.FlashMessage(message: "You've been registered successfully! Please, log in", level: 'success'))
+    app.vent.trigger('user:registered')
+
+  registering.fail ->
+    app.flash_messages.show(new app.views.FlashMessage(message: user.validationError.message))
+    registrationFormView.onFormDataInvalid(user.validationError.errors)
+    registrationFormView.enable()

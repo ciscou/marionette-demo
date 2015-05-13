@@ -5,9 +5,10 @@ app = new Backbone.Marionette.Application
   controllers: {}
   routers: {}
   regions:
-    sidebar: '#sidebar'
+    tabs:           '#tabs'
+    sidebar:        '#sidebar'
     flash_messages: '#flash-messages'
-    main: '#main'
+    main:           '#main'
 
 app.on 'start', ->
   Backbone.history.start()

@@ -14,8 +14,8 @@ app.controllers.Journeys =
     accordion = new app.views.sidebar.Accordion(current: current)
     app.sidebar.show(accordion)
     $('#main').html('here be a map')
-    $('#tabs a.journeys').addClass('active')
-    $('#tabs a.account').removeClass('active')
+
+    app.tabs.show(new app.views.sidebar.Tabs(active: 'journeys'))
 
     app.journeys = new app.collections.Journeys()
     app.journeys.fetch()

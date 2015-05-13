@@ -5,8 +5,9 @@ app.routers.Account = Backbone.Router.extend
     'account': 'account'
   account: ->
     app.sidebar.show(new app.views.sidebar.AccountTabs())
+
+    app.tabs.show(new app.views.sidebar.Tabs(active: 'account'))
+
     $('#main').html('here be an account form')
-    $('#tabs a.journeys').removeClass('active')
-    $('#tabs a.account').addClass('active')
 
 new app.routers.Account()
