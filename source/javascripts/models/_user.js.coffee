@@ -6,4 +6,3 @@ app.models.User = Backbone.Model.extend
     @fetch
       headers:
         'Authorization': "#{auth.get('token_type')} #{auth.get('access_token')}"
-        'X_BROWN_DISPATCHER': 'true'

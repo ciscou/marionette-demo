@@ -73,4 +73,23 @@ configure :build do
   # set :http_prefix, "/Content/images/"
 end
 
-use BrownDispatcher::Interceptor
+class MyProxy < Rack::Proxy
+  def initialize(app)
+    @app = app
+  end
+
+  def call(env)
+    if env["REQUEST_PATH"] =~ /\A\/api\//
+      rewrite_response perform_request rewrite_env env
+    else
+      @app.call(env)
+    end
+  end
+
+  def rewrite_env(env)
+    env["HTTP_HOST"] = "localhost:3000"
+    env
+  end
+end
+
+use MyProxy

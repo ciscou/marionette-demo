@@ -11,6 +11,5 @@ app.models.Authentication = Backbone.Model.extend
     ,
       headers:
         'Authorization': 'Basic ODVhYzVmNmY0Y2JkNDJlZjlmMTdlNjE5ZTliNDI1N2I6OEE4Z1FmdzdpSFduUXJYQnlibm5fdw=='
-        'X_BROWN_DISPATCHER': 'true'
       error: (model, xhr) ->
         model.validationError = xhr.responseJSON || { message: "Authentication failed!" }
