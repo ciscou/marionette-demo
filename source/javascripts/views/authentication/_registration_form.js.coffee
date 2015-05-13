@@ -7,6 +7,9 @@ app.views.authentication.RegistrationForm = Backbone.Marionette.ItemView.extend
 
   template: HandlebarsTemplates['authentication/registration_form']
 
+  events:
+    'change @ui.mobile_cc': 'onMobileCCChanged'
+
   triggers:
     submit: 'submit'
 
@@ -19,6 +22,20 @@ app.views.authentication.RegistrationForm = Backbone.Marionette.ItemView.extend
     mobile_num: '#registration_mobile_num'
     mobile:     '#registration_mobile_num' # repeated because validation says mobile instead of mobile_num???
     submit:     'input[type="submit"]'
+
+  onRender: ->
+    @ui.mobile_cc.val('34').trigger('change')
+
+  serializeData: ->
+    countries: [
+      { code:  "56", name: "Chile" }
+      { code:  "51", name: "Lima" }
+      { code: "521", name: "Mexico" }
+      { code:  "34", name: "Spain" }
+    ]
+
+  onMobileCCChanged: ->
+    @$('.input-group-addon.mobile-cc').text("+#{@ui.mobile_cc.val()}")
 
   getData: ->
     name: @ui.name.val()

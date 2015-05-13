@@ -19,11 +19,15 @@
     .form-group
       %label{for: 'registration_mobile_cc'} Country
       %select#registration_mobile_cc.form-control{name: 'mobile_cc'}
-        %option{value: "34"} Spain
+        {{#each countries}}
+        %option{value: "{{code}}"} {{name}}
+        {{/each}}
 
     .form-group
       %label{for: 'registration_mobile_num'} Mobile
-      %input#registration_mobile_num.form-control{name: 'mobile_num', type: 'tel'}
+      .input-group
+        .input-group-addon.mobile-cc
+        %input#registration_mobile_num.form-control{name: 'mobile_num', type: 'tel'}
 
     .form-group
       %input.btn.btn-block.btn-primary{type: 'submit', value: 'Register!'}
