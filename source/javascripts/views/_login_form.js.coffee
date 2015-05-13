@@ -1,13 +1,13 @@
 app = @app
 
-app.views.AuthenticationForm = Backbone.Marionette.ItemView.extend
+app.views.LoginForm = Backbone.Marionette.ItemView.extend
   tagName: 'form'
-  template: HandlebarsTemplates['authentication_form']
+  template: HandlebarsTemplates['login_form']
   triggers:
     submit: 'submit'
   ui:
-    username: 'input#authentication_username'
-    password: 'input#authentication_password'
+    username: 'input#login_username'
+    password: 'input#login_password'
     submit:   'input[type="submit"]'
   getUsername: ->
     @ui.username.val()

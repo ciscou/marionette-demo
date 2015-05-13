@@ -7,12 +7,12 @@ app.controllers.Authentication =
     app.main.show(loginOrRegistrationView)
 
   login: ->
-    authFormView = new app.views.AuthenticationForm()
+    loginFormView = new app.views.LoginForm()
 
-    authFormView.on 'submit', ->
-      authenticateAndFetchUser(authFormView)
+    loginFormView.on 'submit', ->
+      authenticateAndFetchUser(loginFormView)
 
-    app.main.show(authFormView)
+    app.main.show(loginFormView)
 
   register: ->
     registrationFormView = new app.views.RegistrationForm()
@@ -36,22 +36,22 @@ app.controllers.Authentication =
 
     app.main.show(registrationFormView)
 
-authenticateAndFetchUser = (authFormView) ->
-  authFormView.disable()
+authenticateAndFetchUser = (loginFormView) ->
+  loginFormView.disable()
 
-  auth = new app.models.Authentication()
-  promise = auth.authenticate(authFormView.getUsername(), authFormView.getPassword())
+  auth = new app.models.Authorization()
+  promise = auth.authenticate(loginFormView.getUsername(), loginFormView.getPassword())
 
   promise.done ->
-    fetchUserForAuthentication(auth)
+    fetchUserForAuthorization(auth)
 
   promise.fail ->
     app.flash_messages.show(new app.views.FlashMessage(message: auth.validationError.message))
-    authFormView.enable()
+    loginFormView.enable()
 
-fetchUserForAuthentication = (auth) ->
+fetchUserForAuthorization = (auth) ->
   user = new app.models.User()
-  promise = user.fetchForAuthentication(auth)
+  promise = user.fetchForAuthorization(auth)
 
   promise.done ->
     app.flash_messages.show(new app.views.FlashMessage(message: "Welcome, #{user.get('full_name')}!", level: 'success'))

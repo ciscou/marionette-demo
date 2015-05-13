@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    .form-group
+      %label{for: 'login_username'} Username
+      %input#login_username.form-control{name: 'username', type: 'text'}
+    .form-group
+      %label{for: 'login_password'} Password
+      %input#login_password.form-control{name: 'password', type: 'password'}
+    .form-group
+      %input.btn.btn-block.btn-primary{type: 'submit', value: 'Sign In!'}
+
+    %p
+      Don't have an account?
+      %a.btn.btn-default.btn-xs{href: '#register'} Register
