@@ -11,11 +11,13 @@ app.controllers.Journeys =
     @journeys('past')
 
   journeys: (current) ->
-    accordion = new app.views.sidebar.Accordion(current: current)
-    app.sidebar.show(accordion)
-    $('#main').html('here be a map')
+    sidebar = new app.views.sidebar.Layout(active: 'journeys')
+    app.sidebar.show(sidebar)
 
-    app.tabs.show(new app.views.sidebar.Tabs(active: 'journeys'))
+    accordion = new app.views.sidebar.Accordion(current: current)
+    sidebar.content.show(accordion)
+
+    $('#main').html('here be a map')
 
     app.journeys = new app.collections.Journeys()
     app.journeys.fetch()

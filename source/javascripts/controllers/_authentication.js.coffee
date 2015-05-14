@@ -2,7 +2,6 @@ app = @app
 
 app.controllers.Authentication =
   loginOrRegister: ->
-    app.tabs.empty()
     app.sidebar.empty()
 
     loginOrRegistrationView = new app.views.authentication.LoginOrRegistration()
@@ -10,7 +9,6 @@ app.controllers.Authentication =
     app.main.show(loginOrRegistrationView)
 
   login: ->
-    app.tabs.empty()
     app.sidebar.empty()
 
     loginFormView = new app.views.authentication.LoginForm()
@@ -21,7 +19,6 @@ app.controllers.Authentication =
     app.main.show(loginFormView)
 
   register: ->
-    app.tabs.empty()
     app.sidebar.empty()
 
     registrationFormView = new app.views.authentication.RegistrationForm()

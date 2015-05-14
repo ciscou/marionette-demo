@@ -4,9 +4,10 @@ app.routers.Account = Backbone.Router.extend
   routes:
     'account': 'account'
   account: ->
-    app.sidebar.show(new app.views.sidebar.AccountTabs())
+    sidebar = new app.views.sidebar.Layout(active: 'account')
+    app.sidebar.show(sidebar)
 
-    app.tabs.show(new app.views.sidebar.Tabs(active: 'account'))
+    sidebar.content.show(new app.views.sidebar.AccountTabs())
 
     $('#main').html('here be an account form')
 

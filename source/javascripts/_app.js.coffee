@@ -5,7 +5,6 @@ app = new Backbone.Marionette.Application
   controllers: {}
   routers: {}
   regions:
-    tabs:           '#tabs'
     sidebar:        '#sidebar'
     flash_messages: '#flash-messages'
     main:           '#main'
